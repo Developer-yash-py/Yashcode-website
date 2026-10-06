@@ -84,11 +84,6 @@ export default function App() {
         onClose={() => setIsContactOpen(false)}
       />
 
-      <ImageLightboxModal
-        imageUrl={lightboxImage}
-        onClose={() => setLightboxImage(null)}
-      />
-
       <ProjectDetailModal
         project={selectedProject}
         onClose={() => setSelectedProject(null)}
