@@ -10,6 +10,16 @@ const BUILD_LABELS = [
   'BUILD • TEST • ITERATE',
 ];
 
+const CARD_IMAGES: Record<string, string> = {
+  'SOFTWARE': '/src/assets/card-software.svg',
+  'AI SYSTEMS': '/src/assets/card-ai-systems.svg',
+  'AUTOMATION': '/src/assets/card-automation.svg',
+  'DIGITAL PRODUCTS': '/src/assets/card-digital-products.svg',
+  'WEB DEVELOPMENT': '/src/assets/card-web-development.svg',
+  'EXPERIMENTS': '/src/assets/card-experiments.svg',
+  'BUILD • TEST • ITERATE': '/src/assets/card-build-test-iterate.svg',
+};
+
 export const MarqueeSection: React.FC = () => {
   const row = [...BUILD_LABELS, ...BUILD_LABELS, ...BUILD_LABELS];
 
@@ -24,9 +34,16 @@ export const MarqueeSection: React.FC = () => {
               {items.map((label, index) => (
                 <div
                   key={`${rowIndex}-${index}`}
-                  className="w-[240px] h-[150px] sm:w-[300px] sm:h-[190px] md:w-[360px] md:h-[220px] shrink-0 rounded-2xl overflow-hidden bg-[#121316] border border-white/10 flex items-end p-5 sm:p-7"
+                  className="relative w-[240px] h-[150px] sm:w-[300px] sm:h-[190px] md:w-[360px] md:h-[220px] shrink-0 rounded-2xl overflow-hidden bg-[#121316] border border-white/10 flex items-end p-5 sm:p-7"
                 >
-                  <div>
+                  <img
+                    src={CARD_IMAGES[label]}
+                    alt=""
+                    aria-hidden="true"
+                    className="absolute inset-0 w-full h-full object-cover"
+                  />
+                  <div aria-hidden="true" className="absolute inset-0 bg-gradient-to-t from-[#121316] via-[#121316]/35 to-transparent" />
+                  <div className="relative z-10">
                     <span className="text-[10px] sm:text-xs uppercase tracking-[0.3em] text-[#B600A8]">YASHCODE</span>
                     <p className="mt-2 text-lg sm:text-2xl md:text-3xl font-black uppercase tracking-tight text-[#D7E2EA]">{label}</p>
                   </div>
