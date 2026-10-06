@@ -1,6 +1,6 @@
 {
-  "name": "Jack -- 3D Creator",
-  "description": "3D Creator portfolio landing page for Jack, featuring 3D modeling, photorealistic rendering, and motion design.",
+  "name": "YashCode — Developer, Builder & Creator",
+  "description": "YashCode is the personal developer portfolio of Yash, building software, AI systems, automation workflows, and digital products.",
   "requestFramePermissions": [],
-  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+  "majorCapabilities": []
 }
