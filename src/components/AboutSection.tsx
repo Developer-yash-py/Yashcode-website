@@ -18,7 +18,7 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ onContactClick }) =>
         <FadeIn delay={0.1} x={-80} y={0} duration={0.9}>
           <img
             src="https://shrug-person-78902957.figma.site/_components/v2/ebb2b8f25d8e24d5f0a5ca8af4c950de81aa2fd7/moon_icon.11395d36.png"
-            alt="3D Moon Icon"
+            alt=""
             className="w-[120px] sm:w-[160px] md:w-[210px] h-auto object-contain drop-shadow-xl opacity-90 hover:opacity-100 transition-opacity"
             referrerPolicy="no-referrer"
           />
@@ -30,7 +30,7 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ onContactClick }) =>
         <FadeIn delay={0.25} x={-80} y={0} duration={0.9}>
           <img
             src="https://shrug-person-78902957.figma.site/_components/v2/ebb2b8f25d8e24d5f0a5ca8af4c950de81aa2fd7/p59_1.4659672e.png"
-            alt="3D Abstract Geometry"
+            alt=""
             className="w-[100px] sm:w-[140px] md:w-[180px] h-auto object-contain drop-shadow-xl opacity-90 hover:opacity-100 transition-opacity"
             referrerPolicy="no-referrer"
           />
@@ -42,7 +42,7 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ onContactClick }) =>
         <FadeIn delay={0.15} x={80} y={0} duration={0.9}>
           <img
             src="https://shrug-person-78902957.figma.site/_components/v2/ebb2b8f25d8e24d5f0a5ca8af4c950de81aa2fd7/lego_icon-1.703bb594.png"
-            alt="3D Lego Icon"
+            alt=""
             className="w-[120px] sm:w-[160px] md:w-[210px] h-auto object-contain drop-shadow-xl opacity-90 hover:opacity-100 transition-opacity"
             referrerPolicy="no-referrer"
           />
@@ -54,7 +54,7 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ onContactClick }) =>
         <FadeIn delay={0.3} x={80} y={0} duration={0.9}>
           <img
             src="https://shrug-person-78902957.figma.site/_components/v2/ebb2b8f25d8e24d5f0a5ca8af4c950de81aa2fd7/Group_134-1.2e04f3ce.png"
-            alt="3D Group Icon"
+            alt=""
             className="w-[130px] sm:w-[170px] md:w-[220px] h-auto object-contain drop-shadow-xl opacity-90 hover:opacity-100 transition-opacity"
             referrerPolicy="no-referrer"
           />
@@ -78,7 +78,7 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ onContactClick }) =>
 
         {/* Animated Paragraph */}
         <AnimatedText
-          text="With more than five years of experience in design, i focus on branding, web design, and user experience, i truly enjoy working with businesses that aim to stand out and present their best image. Let's build something incredible together!"
+          text="I’m Yash, a developer and builder exploring software, AI, automation, and digital products. I enjoy turning ideas into working systems and experimenting with technologies that make products more useful, intelligent, and interactive."
         />
 
         {/* Gap between text block and button */}

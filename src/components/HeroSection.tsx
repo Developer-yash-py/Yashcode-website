@@ -58,7 +58,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onContactClick, onNavi
       <div className="w-full overflow-hidden text-center z-0 mt-6 sm:mt-4 md:-mt-5">
         <FadeIn delay={0.15} y={40}>
           <h1 className="hero-heading font-black uppercase tracking-tight leading-none whitespace-nowrap w-full text-[14vw] sm:text-[15vw] md:text-[16vw] lg:text-[17.5vw]">
-            Hi, i&apos;m jack
+            Hi, i&apos;m Yash
           </h1>
         </FadeIn>
       </div>
@@ -74,8 +74,8 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onContactClick, onNavi
             className="w-full"
           >
             <img
-              src="https://shrug-person-78902957.figma.site/_components/v2/d24c01ad3a56fc65e942a1f501eb73db42d7cf9a/Rectangle_40443.81459862.png"
-              alt="Jack 3D Portrait"
+              src="https://rcebidlabs.com/assets/hero-approved.webp"
+              alt="R-cebid Labs website and software work shown on a laptop and phone"
               className="w-full h-auto object-contain pointer-events-none drop-shadow-2xl"
               referrerPolicy="no-referrer"
             />
@@ -91,7 +91,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onContactClick, onNavi
             className="text-[#D7E2EA] font-light uppercase tracking-wide leading-snug max-w-[160px] sm:max-w-[220px] md:max-w-[260px]"
             style={{ fontSize: 'clamp(0.75rem, 1.4vw, 1.5rem)' }}
           >
-            a 3d creator driven by crafting striking and unforgettable projects
+            developer · builder · creator — building software, AI systems, automation workflows, and digital products
           </p>
         </FadeIn>
 
