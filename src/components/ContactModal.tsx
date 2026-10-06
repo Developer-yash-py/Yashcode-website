@@ -16,7 +16,6 @@ export const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose }) =
     message: '',
   });
   const [isSubmitted, setIsSubmitted] = useState(false);
-  const [copiedEmail, setCopiedEmail] = useState(false);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -27,7 +26,6 @@ export const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose }) =
     <AnimatePresence>
       {isOpen && (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 overflow-y-auto">
-          {/* Backdrop */}
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
@@ -36,7 +34,6 @@ export const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose }) =
             className="fixed inset-0 bg-black/80 backdrop-blur-md"
           />
 
-          {/* Modal Container */}
           <motion.div
             initial={{ opacity: 0, scale: 0.9, y: 20 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
@@ -44,7 +41,6 @@ export const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose }) =
             transition={{ type: 'spring', damping: 25, stiffness: 300 }}
             className="relative w-full max-w-2xl bg-[#121316] border border-[#D7E2EA]/20 rounded-[32px] sm:rounded-[40px] p-6 sm:p-10 shadow-2xl z-10 text-[#D7E2EA] my-auto"
           >
-            {/* Close button */}
             <button
               onClick={onClose}
               className="absolute top-6 right-6 p-2 text-[#D7E2EA]/60 hover:text-white rounded-full bg-white/5 hover:bg-white/10 transition-colors"
@@ -64,17 +60,15 @@ export const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose }) =
                 <p className="text-sm sm:text-base text-[#D7E2EA]/70 max-w-md">
                   Thanks, <span className="font-semibold text-white">{formData.name}</span>. This enquiry form is currently a local demo and is not connected to a submission service yet.
                 </p>
-                <div className="pt-4">
-                  <button
-                    onClick={() => {
-                      setIsSubmitted(false);
-                      onClose();
-                    }}
-                    className="px-8 py-3 rounded-full border border-white/20 text-xs uppercase tracking-widest font-medium hover:bg-white/10 transition-colors"
-                  >
-                    Close Window
-                  </button>
-                </div>
+                <button
+                  onClick={() => {
+                    setIsSubmitted(false);
+                    onClose();
+                  }}
+                  className="mt-4 px-8 py-3 rounded-full border border-white/20 text-xs uppercase tracking-widest font-medium hover:bg-white/10 transition-colors"
+                >
+                  Close Window
+                </button>
               </div>
             ) : (
               <div className="space-y-6">
@@ -102,7 +96,7 @@ export const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose }) =
                         required
                         value={formData.name}
                         onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                        placeholder="Alex Vance"
+                        placeholder="Your name"
                         className="w-full bg-black/40 border border-white/15 rounded-xl px-4 py-3 text-[#D7E2EA] placeholder-white/20 focus:outline-none focus:border-[#B600A8] transition-colors"
                       />
                     </div>
@@ -115,31 +109,28 @@ export const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose }) =
                         required
                         value={formData.email}
                         onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                        placeholder="alex@company.com"
+                        placeholder="you@example.com"
                         className="w-full bg-black/40 border border-white/15 rounded-xl px-4 py-3 text-[#D7E2EA] placeholder-white/20 focus:outline-none focus:border-[#B600A8] transition-colors"
                       />
                     </div>
                   </div>
 
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                    <div>
-                      <label className="block uppercase tracking-wider text-[11px] font-medium text-[#D7E2EA]/70 mb-1">
-                        Primary Service Needed
-                      </label>
-                      <select
-                        value={formData.service}
-                        onChange={(e) => setFormData({ ...formData, service: e.target.value })}
-                        className="w-full bg-black/40 border border-white/15 rounded-xl px-4 py-3 text-[#D7E2EA] focus:outline-none focus:border-[#B600A8] transition-colors"
-                      >
-                        <option value="Web Development" className="bg-[#121316]">Web Development</option>
-                        <option value="AI Systems" className="bg-[#121316]">AI Systems</option>
-                        <option value="Automation" className="bg-[#121316]">Automation</option>
-                        <option value="Custom Software" className="bg-[#121316]">Custom Software</option>
-                        <option value="Digital Products" className="bg-[#121316]">Digital Products</option>
-                        <option value="Other" className="bg-[#121316]">Other</option>                      </select>
-                    </div>
-
-</div>
+                  <div>
+                    <label className="block uppercase tracking-wider text-[11px] font-medium text-[#D7E2EA]/70 mb-1">
+                      Primary Service Needed
+                    </label>
+                    <select
+                      value={formData.service}
+                      onChange={(e) => setFormData({ ...formData, service: e.target.value })}
+                      className="w-full bg-black/40 border border-white/15 rounded-xl px-4 py-3 text-[#D7E2EA] focus:outline-none focus:border-[#B600A8] transition-colors"
+                    >
+                      <option value="Web Development" className="bg-[#121316]">Web Development</option>
+                      <option value="AI Systems" className="bg-[#121316]">AI Systems</option>
+                      <option value="Automation" className="bg-[#121316]">Automation</option>
+                      <option value="Custom Software" className="bg-[#121316]">Custom Software</option>
+                      <option value="Digital Products" className="bg-[#121316]">Digital Products</option>
+                      <option value="Other" className="bg-[#121316]">Other</option>
+                    </select>
                   </div>
 
                   <div>
@@ -151,10 +142,14 @@ export const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose }) =
                       required
                       value={formData.message}
                       onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                      placeholder="Describe your vision, timeline, or links to references..."
+                      placeholder="Describe what you want to build..."
                       className="w-full bg-black/40 border border-white/15 rounded-xl px-4 py-3 text-[#D7E2EA] placeholder-white/20 focus:outline-none focus:border-[#B600A8] transition-colors resize-none"
                     />
                   </div>
+
+                  <p className="text-[11px] leading-relaxed text-[#D7E2EA]/45">
+                    This form is currently a local demo and does not transmit or store enquiries yet.
+                  </p>
 
                   <div className="pt-2 flex justify-end">
                     <ContactButton label="Submit Enquiry" className="w-full sm:w-auto" />
