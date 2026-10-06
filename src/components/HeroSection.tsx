@@ -74,8 +74,8 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onContactClick, onNavi
             className="w-full"
           >
             <img
-              src="https://rcebidlabs.com/assets/hero-approved.webp"
-              alt="R-cebid Labs website and software work shown on a laptop and phone"
+              src="https://shrug-person-78902957.figma.site/_components/v2/d24c01ad3a56fc65e942a1f501eb73db42d7cf9a/Rectangle_40443.81459862.png"
+              alt="YashCode 3D avatar"
               className="w-full h-auto object-contain pointer-events-none drop-shadow-2xl"
               referrerPolicy="no-referrer"
             />
