@@ -1,4 +1,11 @@
 import React from 'react';
+import softwareImage from '../assets/card-software.svg';
+import aiSystemsImage from '../assets/card-ai-systems.svg';
+import automationImage from '../assets/card-automation.svg';
+import digitalProductsImage from '../assets/card-digital-products.svg';
+import webDevelopmentImage from '../assets/card-web-development.svg';
+import experimentsImage from '../assets/card-experiments.svg';
+import buildTestIterateImage from '../assets/card-build-test-iterate.svg';
 
 const BUILD_LABELS = [
   'SOFTWARE',
@@ -11,13 +18,13 @@ const BUILD_LABELS = [
 ];
 
 const CARD_IMAGES: Record<string, string> = {
-  'SOFTWARE': '/src/assets/card-software.svg',
-  'AI SYSTEMS': '/src/assets/card-ai-systems.svg',
-  'AUTOMATION': '/src/assets/card-automation.svg',
-  'DIGITAL PRODUCTS': '/src/assets/card-digital-products.svg',
-  'WEB DEVELOPMENT': '/src/assets/card-web-development.svg',
-  'EXPERIMENTS': '/src/assets/card-experiments.svg',
-  'BUILD • TEST • ITERATE': '/src/assets/card-build-test-iterate.svg',
+  'SOFTWARE': softwareImage,
+  'AI SYSTEMS': aiSystemsImage,
+  'AUTOMATION': automationImage,
+  'DIGITAL PRODUCTS': digitalProductsImage,
+  'WEB DEVELOPMENT': webDevelopmentImage,
+  'EXPERIMENTS': experimentsImage,
+  'BUILD • TEST • ITERATE': buildTestIterateImage,
 };
 
 export const MarqueeSection: React.FC = () => {
