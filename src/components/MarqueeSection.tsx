@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useRef } from 'react';
+import { motion, useScroll, useTransform, useSpring, useReducedMotion } from 'framer-motion';
 import regeneratedImage1791376315082 from '../assets/images/regenerated_image_1791376315082.png';
 import regeneratedImage1791376319539 from '../assets/images/regenerated_image_1791376319539.png';
 import regeneratedImage1791376807012 from '../assets/images/regenerated_image_1791376807012.png';
@@ -37,7 +38,33 @@ const CARD_IMAGES: Record<string, string> = {
 };
 
 export const MarqueeSection: React.FC = () => {
-  const row = [...BUILD_LABELS, ...BUILD_LABELS, ...BUILD_LABELS];
+  const containerRef = useRef<HTMLElement>(null);
+  const shouldReduceMotion = useReducedMotion();
+
+  // Track section scroll position relative to viewport
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ['start end', 'end start'],
+  });
+
+  // Smooth scroll spring for liquid, weighted momentum with zero overshoot or long drift
+  const smoothProgress = useSpring(scrollYProgress, {
+    stiffness: 70,
+    damping: 18,
+    mass: 0.5,
+    restDelta: 0.0001,
+  });
+
+  // Upper row (Row 1): Scroll DOWN -> Moves LEFT (0% to -9%, ~36% of previous sensitivity)
+  const rawXUpper = useTransform(smoothProgress, [0, 1], ['0%', '-9%']);
+
+  // Lower row (Row 2): Scroll DOWN -> Moves RIGHT (-9% to 0%)
+  const rawXLower = useTransform(smoothProgress, [0, 1], ['-9%', '0%']);
+
+  const xUpper = shouldReduceMotion ? '0%' : rawXUpper;
+  const xLower = shouldReduceMotion ? '-4.5%' : rawXLower;
+
+  const row = [...BUILD_LABELS, ...BUILD_LABELS, ...BUILD_LABELS, ...BUILD_LABELS];
 
   const getCardImage = (label: string, rowIndex: number, index: number) => {
     // Selector 1: row 2 (rowIndex 1), 7th item (index 6)
@@ -103,12 +130,13 @@ export const MarqueeSection: React.FC = () => {
   };
 
   return (
-    <section className="bg-[#0C0C0C] pt-24 sm:pt-32 md:pt-40 pb-10 overflow-hidden relative select-none" aria-label="YashCode focus areas">
+    <section ref={containerRef} className="bg-[#0C0C0C] pt-24 sm:pt-32 md:pt-40 pb-10 overflow-hidden relative select-none" aria-label="YashCode focus areas">
       <div className="flex flex-col gap-3">
         {[row, [...row].reverse()].map((items, rowIndex) => (
           <div key={rowIndex} className="overflow-hidden w-full">
-            <div
-              className={`flex gap-3 w-max ${rowIndex === 0 ? 'animate-[marquee_28s_linear_infinite]' : 'animate-[marquee-reverse_32s_linear_infinite]'}`}
+            <motion.div
+              style={{ x: rowIndex === 0 ? xUpper : xLower }}
+              className="flex gap-3 w-max"
             >
               {items.map((label, index) => (
                 <div
@@ -128,7 +156,7 @@ export const MarqueeSection: React.FC = () => {
                   </div>
                 </div>
               ))}
-            </div>
+            </motion.div>
           </div>
         ))}
       </div>
